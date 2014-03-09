@@ -22,7 +22,6 @@ import java.util.ArrayList;
  */
 
 public class GUIAppState extends AbstractAppState {
-    private Box univ_box = new Box(1,1,1);
     private SimpleApplication app;
     private Ray ray = new Ray();
     private Camera cam;
@@ -37,6 +36,7 @@ public class GUIAppState extends AbstractAppState {
         this.cam = this.app.getCamera();
         this.rootNode = this.app.getRootNode();
         this.assetManager = this.app.getAssetManager();
+        layoutObjects();
     }
     
     @Override
@@ -45,45 +45,63 @@ public class GUIAppState extends AbstractAppState {
     }
     
     public void layoutObjects() {
-        brightness();
-        wifi();
-        volume();
+        background();
+        //brightness();
+        //wifi();
+        //volume();
+    }
+    
+    public void background() {
+        Box univ_box = new Box(1,1,1);
+        Geometry background_geom = new Geometry("Brightness", univ_box);
+        Material background_mat = new Material(assetManager, 
+                "Common/MatDefs/Misc/Unshaded.j3md");
+        background_mat.setColor("Color", new ColorRGBA(0.02f,0.056f,0.115f,0.5f));
+        background_geom.setMaterial(background_mat);
+        background_geom.setLocalScale(10.0f,10.0f,0.0f);
+        background_geom.setLocalTranslation(0.0f,0.0f,0.0f);
+        Spatial background = background_geom;
+        objectList.add(background);
+        rootNode.attachChild(background);
     }
     
     public void brightness() {
-        Geometry brightness_geom = new Geometry("Creep", univ_box);
+        Box univ_box = new Box(1,1,1);
+        Geometry brightness_geom = new Geometry("Brightness", univ_box);
         Material brightness_mat = new Material(assetManager, 
                 "Common/MatDefs/Misc/Unshaded.j3md");
         brightness_mat.setColor("Color", ColorRGBA.Gray);
         brightness_geom.setMaterial(brightness_mat);
-        brightness_geom.setLocalScale(1.0f,1.0f,1.0f);
-        brightness_geom.setLocalTranslation(1.0f,1.0f,1.0f);
+        brightness_geom.setLocalScale(4.0f,0.5f,0.0f);
+        brightness_geom.setLocalTranslation(1.5f,3.20f,0.0f);
         Spatial brightness = brightness_geom;
         objectList.add(brightness);
         rootNode.attachChild(brightness);
     }
     
     public void wifi() {
-        Geometry wifi_geom = new Geometry("Creep", univ_box);
+        Box univ_box = new Box(1,1,1);
+        Geometry wifi_geom = new Geometry("Wifi", univ_box);
         Material wifi_mat = new Material(assetManager, 
                 "Common/MatDefs/Misc/Unshaded.j3md");
         wifi_mat.setColor("Color", ColorRGBA.Gray);
         wifi_geom.setMaterial(wifi_mat);
-        wifi_geom.setLocalScale(1.0f,1.0f,1.0f);
-        wifi_geom.setLocalTranslation(1.0f,0.0f,1.0f);
+        wifi_geom.setLocalScale(4.0f,0.5f,0.0f);
+        wifi_geom.setLocalTranslation(1.5f,2.20f,0.0f);
         Spatial wifi = wifi_geom;
         objectList.add(wifi);
         rootNode.attachChild(wifi);
     }
     
     public void volume() {
-        Geometry volume_geom = new Geometry("Creep", univ_box);
+        Box univ_box = new Box(1,1,1);
+        Geometry volume_geom = new Geometry("Volume", univ_box);
         Material volume_mat = new Material(assetManager, 
                 "Common/MatDefs/Misc/Unshaded.j3md");
         volume_mat.setColor("Color", ColorRGBA.Gray);
         volume_geom.setMaterial(volume_mat);
-        volume_geom.setLocalScale(1.0f,1.0f,1.0f);
-        volume_geom.setLocalTranslation(1.0f,-1.0f,1.0f);
+        volume_geom.setLocalScale(4.0f,0.5f,0.0f);
+        volume_geom.setLocalTranslation(1.5f,1.20f,0.0f);
         Spatial volume = volume_geom;
         objectList.add(volume);
         rootNode.attachChild(volume);

@@ -9,7 +9,7 @@ import java.util.logging.LogManager;
 public class MainActivity extends AndroidHarness{
 
     public MainActivity(){
-        appClass = "TowerDefense.android.TowerDefenseMain";
+        appClass = "New.Interface.GUIMain";
         eglConfigType = ConfigType.BEST;
         exitDialogTitle = "Exit?";
         exitDialogMessage = "Press Yes";

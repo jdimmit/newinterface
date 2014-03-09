@@ -1,2 +1,2 @@
-/home/clarence/TowerDroid/NewInterface/bin/AndroidManifest.xml : \
-/home/clarence/TowerDroid/NewInterface/AndroidManifest.xml \
+/home/clarence/NewInterface/bin/AndroidManifest.xml : \
+/home/clarence/NewInterface/AndroidManifest.xml \
